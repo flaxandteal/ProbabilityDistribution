@@ -1,5 +1,5 @@
 {
-    "name": "mcordingley/probability-distributions",
+    "name": "mcordingley/probability-distribution",
     "license": "MIT",
     "authors": [
         {
@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "mcordingley\\ProbabilityDistributions\\": "src/"
+            "mcordingley\\ProbabilityDistribution\\": "src/"
         }
     },
     "require": {},
