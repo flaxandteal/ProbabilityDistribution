@@ -2,8 +2,6 @@
 
 namespace mcordingley\ProbabilityDistribution\Continuous;
 
-use mcordingley\ProbabilityDistribution\AbstractProbabilityDistribution;
-
 /**
  * Uniform
  * 
@@ -12,7 +10,7 @@ use mcordingley\ProbabilityDistribution\AbstractProbabilityDistribution;
  *
  * For more information, see: http://en.wikipedia.org/wiki/Uniform_distribution_%28continuous%29
  */
-class Uniform extends AbstractProbabilityDistribution
+class Uniform extends AbstractContinuousProbabilityDistribution
 {
 	protected $minimum;
 	protected $maximum;
