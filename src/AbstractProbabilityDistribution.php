@@ -59,8 +59,21 @@ abstract class AbstractProbabilityDistribution
      * @return float
      */
     abstract public function getPpf($x);
-    
-    abstract public function getIsf($x);
+	
+    /**
+     * getIsf
+     * 
+     * Inverse Survival Function
+     * 
+     * Tells you what value exists a the 1 - $x percentile for the distribution.
+     * 
+     * @param float $x
+     * @return float
+     */
+	public function getIsf($x)
+    {
+		return $this->getPpf(1.0 - $x);
+	}
     
     abstract public function getMean();
     

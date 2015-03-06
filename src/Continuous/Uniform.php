@@ -51,11 +51,6 @@ class Uniform extends AbstractContinuousProbabilityDistribution
     {
 		return $this->minimum + $x * ($this->maximum - $this->minimum);
 	}
-	
-	public function getIsf($x)
-    {
-		return $this->getPpf(1.0 - $x);
-	}
     
     public function getMean()
     {

@@ -57,11 +57,6 @@ class Binomial extends AbstractDiscreteProbabilityDistribution
 		return $i - 1;
 	}
 	
-	public function getIsf($x)
-    {
-		return $this->getPpf(1.0 - $x);
-	}
-	
 	public function getMean()
     {
 		return $this->n * $this->p;
