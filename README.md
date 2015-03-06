@@ -6,6 +6,16 @@ Probability Distribution
 In-progress split of the probability distributions from PHPStats into their own
 project.
 
+## Installation
+
+Add this to your composer.json and update:
+
+    "mcordingley/probability-distribution": "dev-master"
+
+This will eventually switch over to using semantic versioning,
+but it makes little sense to do so while this is in early
+development.
+
 ## Help This Project!
 
 The biggest blocker to getting good statistical software working in PHP is the
@@ -17,10 +27,6 @@ distribution absolutely require these functions to be able to work.
 The old PHPStats library does have implementations of these, but I cannot
 account for their accuracy. What this project needs to succeed are new
 implementations in a separate PHP package that are of high quality. Making this
-happen is beyond my ability.
-
-Ideally, they would be implemented in the global namespace ---as if PHP had them
-natively--- and their definitions bracketed by `if (!function_exists('foo')) {`
-guard clauses, so the library is effectively a shim for functions that we wish
-PHP had. It'd also be nice to have an RFC submitted to PHP internals to make the
-functions eventually _be_ native.
+happen is beyond my ability. I have set up
+[ExtendedMath](https://github.com/mcordingley/ExtendedMath) as a place where
+these functions can be gathered, but cannot fill it myself.
