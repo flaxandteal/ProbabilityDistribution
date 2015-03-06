@@ -72,7 +72,7 @@ class Uniform implements ProbabilityDistributionInterface
 	
 	public function getIsf($x)
     {
-		return self::getPpf(1.0 - $x, $this->minimum, $this->maximum) + 1;
+		return $this->getPpf(1.0 - $x) + 1;
 	}
     
     public function getMean()
