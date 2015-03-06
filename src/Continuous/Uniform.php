@@ -12,9 +12,9 @@ namespace mcordingley\ProbabilityDistribution\Continuous;
  */
 class Uniform extends AbstractContinuousProbabilityDistribution
 {
-	protected $minimum;
-	protected $maximum;
-	
+    protected $minimum;
+    protected $maximum;
+    
     /**
      * __construct
      *
@@ -27,53 +27,53 @@ class Uniform extends AbstractContinuousProbabilityDistribution
         $this->maximum = $maximum;
     }
     
-	public function getPdf($x)
+    public function getPdf($x)
     {
-		if ($x >= $this->minimum && $x <= $this->maximum) {
+        if ($x >= $this->minimum && $x <= $this->maximum) {
             return 1.0 / ($this->maximum - $this->minimum);
         } else {
             return 0.0;
         }
-	}
-	
-	public function getCdf($x)
+    }
+    
+    public function getCdf($x)
     {
-		if ($x >= $this->minimum && $x <= $this->maximum) {
+        if ($x >= $this->minimum && $x <= $this->maximum) {
             return ($x - $this->minimum) / ($this->maximum - $this->minimum);
         } elseif ($x > $this->maximum) {
             return 1.0;
         } else {
             return 0.0;
         }
-	}
-	
-	public function getPpf($x)
+    }
+    
+    public function getPpf($x)
     {
-		return $this->minimum + $x * ($this->maximum - $this->minimum);
-	}
+        return $this->minimum + $x * ($this->maximum - $this->minimum);
+    }
     
     public function getMean()
     {
-		return 0.5 * ($this->maximum + $this->minimum);
+        return 0.5 * ($this->maximum + $this->minimum);
     }
     
     public function getVariance()
     {
-		return (1.0 / 12) * pow(($this->maximum - $this->minimum), 2);
+        return (1.0 / 12) * pow(($this->maximum - $this->minimum), 2);
     }
     
     public function getSkew()
     {
-		return 0;
+        return 0;
     }
-	
-	public function getKurtosis()
+    
+    public function getKurtosis()
     {
-		return -1.2;
-	}
-	
-	public function generateRandomVariate()
+        return -1.2;
+    }
+    
+    public function generateRandomVariate()
     {
-		return (mt_rand() / mt_getrandmax()) * ($this->maximum - $this->minimum) + $this->minimum;
-	}
+        return (mt_rand() / mt_getrandmax()) * ($this->maximum - $this->minimum) + $this->minimum;
+    }
 }

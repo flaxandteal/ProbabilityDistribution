@@ -17,63 +17,63 @@ class Uniform extends AbstractDiscreteProbabilityDistribution
      * 
      * @var int
      */
-	protected $minimum;
+    protected $minimum;
     
     /**
      * The maximum value for this distribution
      * 
      * @var int
      */
-	protected $maximum;
-	
-	/**
-	 * __construct 
-	 *
-	 * @param int $minimum The minimum value the distribution can take on
-	 * @param int $maximum The maximum value the distribution can take on
-	 */
-	public function __construct($minimum = 0, $maximum = 1)
+    protected $maximum;
+    
+    /**
+     * __construct 
+     *
+     * @param int $minimum The minimum value the distribution can take on
+     * @param int $maximum The maximum value the distribution can take on
+     */
+    public function __construct($minimum = 0, $maximum = 1)
     {
-		$this->minimum = $minimum;
-		$this->maximum = $maximum;
-	}
-	
-	public function getPdf($x)
+        $this->minimum = $minimum;
+        $this->maximum = $maximum;
+    }
+    
+    public function getPdf($x)
     {
-		if ($x >= $this->minimum && $x <= $this->maximum) {
+        if ($x >= $this->minimum && $x <= $this->maximum) {
             return 1.0 / ($this->maximum - $this->minimum + 1);
         } else {
             return 0.0;
         }
-	}
-	
-	public function getPpf($x)
+    }
+    
+    public function getPpf($x)
     {
-		return ceil($x * ($this->maximum - $this->minimum + 1));
-	}
+        return ceil($x * ($this->maximum - $this->minimum + 1));
+    }
     
     public function getMean()
     {
-		return 0.5 * ($this->maximum + $this->minimum);
+        return 0.5 * ($this->maximum + $this->minimum);
     }
     
     public function getVariance()
     {
-		return (1.0 / 12) * pow(($this->maximum - $this->minimum + 1), 2);
+        return (1.0 / 12) * pow(($this->maximum - $this->minimum + 1), 2);
     }
-	
+    
     public function getSkew()
     {
-		return 0;
+        return 0;
     }
-	
-	public function getKurtosis()
+    
+    public function getKurtosis()
     {
-		return -(6.0 * (pow(($this->maximum - $this->minimum + 1), 2) + 1)) / (5.0 * (pow(($this->maximum - $this->minimum + 1), 2) - 1));
-	}
+        return -(6.0 * (pow(($this->maximum - $this->minimum + 1), 2) + 1)) / (5.0 * (pow(($this->maximum - $this->minimum + 1), 2) - 1));
+    }
 
-	public function generateRandomVariate()
+    public function generateRandomVariate()
     {
-		return mt_rand($this->minimum, $this->maximum);
-	}
+        return mt_rand($this->minimum, $this->maximum);
+    }
 }

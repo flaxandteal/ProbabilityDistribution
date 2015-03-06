@@ -17,55 +17,55 @@ class Exponential extends AbstractContinuousProbabilityDistribution
      * 
      * @var float
      */
-	protected $lambda;
+    protected $lambda;
 
-	/**
-	 * __contruct
-	 *
-	 * @param float $lambda
-	 */
-	public function __construct($lambda = 1.0)
+    /**
+     * __contruct
+     *
+     * @param float $lambda
+     */
+    public function __construct($lambda = 1.0)
     {
-		$this->lambda = $lambda;
-	}
-	
-	public function getPdf($x)
+        $this->lambda = $lambda;
+    }
+    
+    public function getPdf($x)
     {
-		return $this->lambda * exp(-$this->lambda * $x);
-	}
-	
-	public function getCdf($x)
+        return $this->lambda * exp(-$this->lambda * $x);
+    }
+    
+    public function getCdf($x)
     {
-		return 1.0 - exp(-$this->lambda * $x);
-	}
-	
-	public function getPpf($x)
+        return 1.0 - exp(-$this->lambda * $x);
+    }
+    
+    public function getPpf($x)
     {
-		return log(1 - $x) / -$this->lambda;
-	}
-	
+        return log(1 - $x) / -$this->lambda;
+    }
+    
     public function getMean()
     {
-		return 1.0 / $this->lambda;
+        return 1.0 / $this->lambda;
     }
     
     public function getVariance()
     {
-		return pow($this->lambda, -2);
+        return pow($this->lambda, -2);
     }
     
     public function getSkew()
     {
-		return 2;
+        return 2;
     }
     
-	public function getKurtosis()
+    public function getKurtosis()
     {
-		return 6;
-	}
-	
-	public function generateRandomVariate()
+        return 6;
+    }
+    
+    public function generateRandomVariate()
     {
-		return -log(mt_rand() / mt_getrandmax()) / $this->lambda;
-	}
+        return -log(mt_rand() / mt_getrandmax()) / $this->lambda;
+    }
 }

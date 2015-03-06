@@ -17,7 +17,7 @@ class Binomial extends AbstractDiscreteProbabilityDistribution
      * 
      * @var int
      */
-	protected $n;
+    protected $n;
     
     /**
      * The probability of success for each Bernoulli trial. A float in the range
@@ -25,68 +25,68 @@ class Binomial extends AbstractDiscreteProbabilityDistribution
      * 
      * @var float
      */
-	protected $p;
-	
-	/**
-	 * __construct
-	 *
-	 * @param float $p The probability of success in a single trial
-	 * @param int $n The number of trials
-	 */
-	public function __construct($p = 0.5, $n = 1)
-    {
-		$this->p = $p;
-		$this->n = $n;
-	}
-	
-	public function getPdf($x)
-    {
-		return ncr($this->n, $x) * pow($this->p, $x) * pow(1 - $this->p, $this->n - $x);
-	}
+    protected $p;
     
-	public function getPpf($x)
+    /**
+     * __construct
+     *
+     * @param float $p The probability of success in a single trial
+     * @param int $n The number of trials
+     */
+    public function __construct($p = 0.5, $n = 1)
     {
-		$i = 0;
-		$cdf = 0;
-		
-		while ($cdf < $x) {
-			$cdf += $this->getPdf($i);
-			$i++;
-		}
-		
-		return $i - 1;
-	}
-	
-	public function getMean()
+        $this->p = $p;
+        $this->n = $n;
+    }
+    
+    public function getPdf($x)
     {
-		return $this->n * $this->p;
-	}
-	
-	public function getVariance()
+        return ncr($this->n, $x) * pow($this->p, $x) * pow(1 - $this->p, $this->n - $x);
+    }
+    
+    public function getPpf($x)
     {
-		return $this->n * $this->p * (1 - $this->p);
-	}
-	
-	public function getSkew()
+        $i = 0;
+        $cdf = 0;
+        
+        while ($cdf < $x) {
+            $cdf += $this->getPdf($i);
+            $i++;
+        }
+        
+        return $i - 1;
+    }
+    
+    public function getMean()
     {
-		return (1 - 2 * $this->p) / sqrt($this->n * $this->p * (1 - $this->p));
-	}
-	
-	public function getKurtosis()
+        return $this->n * $this->p;
+    }
+    
+    public function getVariance()
     {
-		return (1 - 6 * $this->p * (1 - $this->p)) / ($this->n * $this->p * (1 - $this->p));
-	}
+        return $this->n * $this->p * (1 - $this->p);
+    }
+    
+    public function getSkew()
+    {
+        return (1 - 2 * $this->p) / sqrt($this->n * $this->p * (1 - $this->p));
+    }
+    
+    public function getKurtosis()
+    {
+        return (1 - 6 * $this->p * (1 - $this->p)) / ($this->n * $this->p * (1 - $this->p));
+    }
 
-	public function generateRandomVariate()
+    public function generateRandomVariate()
     {
-		$successes = 0;
+        $successes = 0;
 
-		for ($i = 0; $i < $this->n; $i++) {
-			if (mt_rand() / mt_getrandmax() <= $this->p) {
+        for ($i = 0; $i < $this->n; $i++) {
+            if (mt_rand() / mt_getrandmax() <= $this->p) {
                 $successes++;
             }
-		}
+        }
 
-		return $successes;
-	}
+        return $successes;
+    }
 }
