@@ -2,7 +2,7 @@
  
 namespace mcordingley\ProbabilityDistribution\Discrete;
 
-use mcordingley\ProbabilityDistribution\ProbabilityDistributionInterface;
+use mcordingley\ProbabilityDistribution\AbstractProbabilityDistribution;
 
 /**
  * Binomial
@@ -12,7 +12,7 @@ use mcordingley\ProbabilityDistribution\ProbabilityDistributionInterface;
  *
  * For more information, see: http://en.wikipedia.org/wiki/Binomial_distribution
  */
-class Binomial implements ProbabilityDistributionInterface
+class Binomial extends AbstractProbabilityDistribution
 {
     /**
      * The number of Bernoulli trials in this distribution
@@ -55,11 +55,6 @@ class Binomial implements ProbabilityDistributionInterface
 		}
         
 		return $sum;
-	}
-	
-	public function getSf($x)
-    {
-		return 1.0 - $this->getCdf($x);
 	}
     
 	public function getPpf($x)

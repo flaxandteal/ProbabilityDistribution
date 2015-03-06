@@ -2,7 +2,7 @@
 
 namespace mcordingley\ProbabilityDistribution\Continuous;
 
-use mcordingley\ProbabilityDistribution\ProbabilityDistributionInterface;
+use mcordingley\ProbabilityDistribution\AbstractProbabilityDistribution;
 
 /**
  * Uniform
@@ -12,7 +12,7 @@ use mcordingley\ProbabilityDistribution\ProbabilityDistributionInterface;
  *
  * For more information, see: http://en.wikipedia.org/wiki/Uniform_distribution_%28continuous%29
  */
-class Uniform implements ProbabilityDistributionInterface
+class Uniform extends AbstractProbabilityDistribution
 {
 	protected $minimum;
 	protected $maximum;
@@ -47,11 +47,6 @@ class Uniform implements ProbabilityDistributionInterface
         } else {
             return 0.0;
         }
-	}
-	
-	public function getSf($x)
-    {
-		return 1.0 - $this->getCdf($x);
 	}
 	
 	public function getPpf($x)
