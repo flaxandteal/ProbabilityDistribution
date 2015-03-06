@@ -16,4 +16,19 @@ abstract class AbstractDiscreteProbabilityDistribution extends AbstractProbabili
         
 		return $sum;
 	}
+    
+    public function getPpf($x)
+    {
+        if ($x >= 1) return INF; //Prevents infinite loops.
+    
+        $i = 0;
+        $cdf = 0;
+        
+        while ($cdf < $x) {
+            $cdf += $this->getPdf($i);
+            $i++;
+        }
+        
+        return $i - 1;
+    }
 }

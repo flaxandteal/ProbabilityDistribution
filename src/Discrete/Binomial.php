@@ -44,19 +44,6 @@ class Binomial extends AbstractDiscreteProbabilityDistribution
         return ncr($this->n, $x) * pow($this->p, $x) * pow(1 - $this->p, $this->n - $x);
     }
     
-    public function getPpf($x)
-    {
-        $i = 0;
-        $cdf = 0;
-        
-        while ($cdf < $x) {
-            $cdf += $this->getPdf($i);
-            $i++;
-        }
-        
-        return $i - 1;
-    }
-    
     public function getMean()
     {
         return $this->n * $this->p;
