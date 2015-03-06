@@ -33,7 +33,7 @@ class DiscreteUniformTest extends PHPUnit_Framework_TestCase {
 
     public function test_isf()
     {
-        $this->assertEquals(8, $this->testObject->getIsf(0.2));
+        $this->assertEquals(9, $this->testObject->getIsf(0.2));
     }
     
     public function test_mean()
