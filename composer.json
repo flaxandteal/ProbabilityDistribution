@@ -12,7 +12,9 @@
             "mcordingley\\ProbabilityDistribution\\": "src/"
         }
     },
-    "require": {},
+    "require": {
+        "mcordingley/extended-math": "dev-master"
+    },
     "require-dev": {
         "phpunit/phpunit": "~4.5"
     }
