@@ -1,6 +1,8 @@
 Probability Distribution
 ========================
 
+[![Build Status](https://api.travis-ci.org/repositories/mcordingley/ProbabilityDistribution.svg)](https://travis-ci.org/mcordingley/ProbabilityDistribution)
+
 In-progress split of the probability distributions from PHPStats into their own
 project.
 
