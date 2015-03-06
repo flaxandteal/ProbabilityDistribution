@@ -47,11 +47,6 @@ class Uniform extends AbstractDiscreteProbabilityDistribution
         }
     }
     
-    public function getPpf($x)
-    {
-        return ceil($x * ($this->maximum - $this->minimum + 1));
-    }
-    
     public function getMean()
     {
         return 0.5 * ($this->maximum + $this->minimum);
