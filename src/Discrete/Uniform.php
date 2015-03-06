@@ -14,7 +14,18 @@ use mcordingley\ProbabilityDistribution\ProbabilityDistributionInterface;
  */
 class Uniform implements ProbabilityDistributionInterface
 {
+    /**
+     * The minimum value for this distribution
+     * 
+     * @var int
+     */
 	protected $minimum;
+    
+    /**
+     * The maximum value for this distribution
+     * 
+     * @var int
+     */
 	protected $maximum;
 	
 	/**
