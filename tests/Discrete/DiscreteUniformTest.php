@@ -13,6 +13,7 @@ class DiscreteUniformTest extends PHPUnit_Framework_TestCase {
 	public function test_pdf()
     {
 		$this->assertEquals(0.1, $this->testObject->getPdf(4));
+		$this->assertEquals(0.1, $this->testObject->getPdf(4.5));
 	}
 
 	public function test_cdf()
