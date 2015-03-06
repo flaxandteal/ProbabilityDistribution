@@ -2,8 +2,6 @@
 
 namespace mcordingley\ProbabilityDistribution\Discrete;
 
-use mcordingley\ProbabilityDistribution\AbstractProbabilityDistribution;
-
 /**
  * Uniform
  * 
@@ -12,7 +10,7 @@ use mcordingley\ProbabilityDistribution\AbstractProbabilityDistribution;
  *
  * For more information, see: http://en.wikipedia.org/wiki/Uniform_distribution_%28discrete%29
  */
-class Uniform extends AbstractProbabilityDistribution
+class Uniform extends AbstractDiscreteProbabilityDistribution
 {
     /**
      * The minimum value for this distribution
@@ -44,17 +42,6 @@ class Uniform extends AbstractProbabilityDistribution
     {
 		if ($x >= $this->minimum && $x <= $this->maximum) {
             return 1.0 / ($this->maximum - $this->minimum + 1);
-        } else {
-            return 0.0;
-        }
-	}
-	
-	public function getCdf($x)
-    {
-		if ($x >= $this->minimum && $x <= $this->maximum) {
-            return ($x - $this->minimum + 1) / ($this->maximum - $this->minimum + 1);
-        } elseif ($x > $this->maximum) {
-            return 1.0;
         } else {
             return 0.0;
         }

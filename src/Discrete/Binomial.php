@@ -2,8 +2,6 @@
  
 namespace mcordingley\ProbabilityDistribution\Discrete;
 
-use mcordingley\ProbabilityDistribution\AbstractProbabilityDistribution;
-
 /**
  * Binomial
  * 
@@ -12,7 +10,7 @@ use mcordingley\ProbabilityDistribution\AbstractProbabilityDistribution;
  *
  * For more information, see: http://en.wikipedia.org/wiki/Binomial_distribution
  */
-class Binomial extends AbstractProbabilityDistribution
+class Binomial extends AbstractDiscreteProbabilityDistribution
 {
     /**
      * The number of Bernoulli trials in this distribution
@@ -44,17 +42,6 @@ class Binomial extends AbstractProbabilityDistribution
 	public function getPdf($x)
     {
 		return ncr($this->n, $x) * pow($this->p, $x) * pow(1 - $this->p, $this->n - $x);
-	}
-	
-	public function getCdf($x)
-    {
-		$sum = 0;
-        
-		for ($count = 0; $count <= $x; $count++) {
-			$sum += $this->getPdf($count);
-		}
-        
-		return $sum;
 	}
     
 	public function getPpf($x)
