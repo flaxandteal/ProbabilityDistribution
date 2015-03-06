@@ -6,6 +6,13 @@ use mcordingley\ProbabilityDistribution\AbstractProbabilityDistribution;
 
 abstract class AbstractDiscreteProbabilityDistribution extends AbstractProbabilityDistribution
 {
+    /* These versions of getCdf and getPpf are guaranteed to be correct for
+     * all discrete distributions. In the case of certain distributions, it's
+     * possible to find these values analytically. Where possible, that is
+     * the preferred method of finding the values, as they should be more
+     * performance.
+     */
+    
 	public function getCdf($x)
     {
 		$sum = 0;
