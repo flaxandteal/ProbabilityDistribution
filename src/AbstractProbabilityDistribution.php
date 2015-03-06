@@ -75,13 +75,48 @@ abstract class AbstractProbabilityDistribution
 		return $this->getPpf(1.0 - $x);
 	}
     
+    /**
+     * getMean
+     * 
+     * Gets the average value that the distribution takes on.
+     * 
+     * @return float|null
+     */
     abstract public function getMean();
     
+    /**
+     * getVariance
+     * 
+     * Returns a measure of the dispersion of the distribution.
+     * 
+     * @return float|null
+     */
     abstract public function getVariance();
     
+    /**
+     * getSkew
+     * 
+     * Returns the skew of the distribution, a measure of how "slanted" it is.
+     * 
+     * @return float|null
+     */
     abstract public function getSkew();
     
+    /**
+     * getKurtosis
+     * 
+     * Returns a measure of how "peaked" the distribution is.
+     * 
+     * @return float|null
+     */
     abstract public function getKurtosis();
     
+    /**
+     * generateRandomVariate
+     * 
+     * Generates a random variable in the shape of this distribution.
+     * 
+     * @return float
+     */
     abstract public function generateRandomVariate();
 }
