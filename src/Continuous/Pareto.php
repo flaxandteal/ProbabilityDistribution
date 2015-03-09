@@ -13,43 +13,43 @@ namespace mcordingley\ProbabilityDistribution\Continuous;
  */
 class Pareto extends AbstractContinuousProbabilityDistribution
 {
-	protected $minimum;
-	protected $alpha;
-	
-	/**
-	 * __construct
-	 * 
-	 * @param float $minimum The minimum value that the distribution can take on
-	 * @param float $alpha The shape parameter
-	 */
-	public function __construct($minimum = 1.0, $alpha = 1.0)
+    protected $minimum;
+    protected $alpha;
+    
+    /**
+     * __construct
+     * 
+     * @param float $minimum The minimum value that the distribution can take on
+     * @param float $alpha The shape parameter
+     */
+    public function __construct($minimum = 1.0, $alpha = 1.0)
     {
-		$this->minimum = $minimum;
-		$this->alpha = $alpha;
-	}
-	
-	public function getPdf($x)
+        $this->minimum = $minimum;
+        $this->alpha = $alpha;
+    }
+    
+    public function getPdf($x)
     {
-		if ($x >= $this->minimum) {
+        if ($x >= $this->minimum) {
             return $this->alpha * pow($this->minimum, $this->alpha) / pow($x, $this->alpha + 1);
         } else {
             return 0.0;
         }
-	}
-	
-	public function getCdf($x)
+    }
+    
+    public function getCdf($x)
     {
-		if ($x >= $this->minimum) {
+        if ($x >= $this->minimum) {
             return 1 - pow($this->minimum / $x, $this->alpha);
         } else {
             return 0.0;
         }
-	}
-	
-	public function getPpf($x)
+    }
+    
+    public function getPpf($x)
     {
-		return $this->minimum / pow(1 - $x, 1 / $this->alpha);
-	}
+        return $this->minimum / pow(1 - $x, 1 / $this->alpha);
+    }
     
     public function getMean()
     {
@@ -85,10 +85,10 @@ class Pareto extends AbstractContinuousProbabilityDistribution
         } else {
             return NAN;
         }
-	}
-	
-	public function generateRandomVariate()
+    }
+    
+    public function generateRandomVariate()
     {
-		return $this->minimum / pow(mt_rand() / mt_getrandmax(), 1 / $this->alpha);
-	}
+        return $this->minimum / pow(mt_rand() / mt_getrandmax(), 1 / $this->alpha);
+    }
 }
