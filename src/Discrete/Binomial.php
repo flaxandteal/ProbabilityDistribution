@@ -69,7 +69,7 @@ class Binomial extends AbstractDiscreteProbabilityDistribution
         $successes = 0;
 
         for ($i = 0; $i < $this->n; $i++) {
-            if (mt_rand() / mt_getrandmax() <= $this->p) {
+            if (static::generateRandomFloat() <= $this->p) {
                 $successes++;
             }
         }

@@ -73,7 +73,7 @@ class Hypergeometric extends AbstractDiscreteProbabilityDistribution
         $successes = 0;
         
         for ($i = 0; $i < $this->n; $i++) {
-            if (mt_rand() / mt_getrandmax() <= $m / $L) {
+            if (static::generateRandomFloat() <= $m / $L) {
                 $m--;
                 $successes++;
             }

@@ -119,4 +119,18 @@ abstract class AbstractProbabilityDistribution
      * @return float
      */
     abstract public function generateRandomVariate();
+    
+    /**
+     * generateRandomFloat
+     * 
+     * Returns a number in the range [0, 1]. If $excludeZero is set, then it
+     * reurns the range (0, 1].
+     * 
+     * @param bool $excludeZero
+     * @return float
+     */
+    protected static function generateRandomFloat($excludeZero = false)
+    {
+        return mt_rand($excludeZero ? 1 : 0) / mt_getrandmax();
+    }
 }

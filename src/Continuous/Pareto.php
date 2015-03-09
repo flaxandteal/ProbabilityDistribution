@@ -89,6 +89,6 @@ class Pareto extends AbstractContinuousProbabilityDistribution
     
     public function generateRandomVariate()
     {
-        return $this->minimum / pow(mt_rand() / mt_getrandmax(), 1 / $this->alpha);
+        return $this->minimum / pow(static::generateRandomFloat(), 1 / $this->alpha);
     }
 }

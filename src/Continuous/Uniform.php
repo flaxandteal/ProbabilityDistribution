@@ -74,6 +74,6 @@ class Uniform extends AbstractContinuousProbabilityDistribution
     
     public function generateRandomVariate()
     {
-        return (mt_rand() / mt_getrandmax()) * ($this->maximum - $this->minimum) + $this->minimum;
+        return static::generateRandomFloat() * ($this->maximum - $this->minimum) + $this->minimum;
     }
 }

@@ -66,6 +66,6 @@ class Exponential extends AbstractContinuousProbabilityDistribution
     
     public function generateRandomVariate()
     {
-        return -log(mt_rand() / mt_getrandmax()) / $this->lambda;
+        return -log(static::generateRandomFloat(true)) / $this->lambda;
     }
 }

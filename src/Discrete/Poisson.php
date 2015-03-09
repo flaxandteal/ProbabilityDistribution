@@ -62,7 +62,7 @@ class Poisson extends AbstractDiscreteProbabilityDistribution
 
         do {
             $k++;
-            $u = mt_rand() / mt_getrandmax();
+            $u = static::generateRandomFloat();
             $p *= $u;
         } while ($p > $l);
 
