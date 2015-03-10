@@ -2,6 +2,7 @@
  
 namespace mcordingley\ProbabilityDistribution\Discrete;
 
+use InvalidArgumentException;
 use mcordingley\ProbabilityDistribution\AbstractProbabilityDistribution;
 
 abstract class AbstractDiscreteProbabilityDistribution extends AbstractProbabilityDistribution
@@ -10,7 +11,7 @@ abstract class AbstractDiscreteProbabilityDistribution extends AbstractProbabili
      * all discrete distributions. In the case of certain distributions, it's
      * possible to find these values analytically. Where possible, that is
      * the preferred method of finding the values, as they should be more
-     * performance.
+     * performant.
      */
     
 	public function getCdf($x)
@@ -26,7 +27,9 @@ abstract class AbstractDiscreteProbabilityDistribution extends AbstractProbabili
     
     public function getPpf($x)
     {
-        if ($x >= 1) return INF; //Prevents infinite loops.
+        if ($x > 1) {
+            throw new InvalidArgumentException('Cannot ask for the percent-point function of greater than 100% probability.');
+        }
     
         $i = 0;
         $cdf = 0;
