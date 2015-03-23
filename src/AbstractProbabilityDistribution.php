@@ -131,6 +131,6 @@ abstract class AbstractProbabilityDistribution
      */
     protected static function generateRandomFloat($excludeZero = false)
     {
-        return mt_rand($excludeZero ? 1 : 0) / mt_getrandmax();
+        return mt_rand($excludeZero ? 1 : 0, mt_getrandmax()) / mt_getrandmax();
     }
 }
